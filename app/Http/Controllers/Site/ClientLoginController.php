@@ -207,7 +207,7 @@ class ClientLoginController extends Controller
    }
 
    public function sendphone(Request $request){
-           dd($request->all());
+         
         $country_code=$request->country_code;
         $phone=$request->phone;
         // we use it in forget password
@@ -216,7 +216,7 @@ class ClientLoginController extends Controller
         return redirect()->back()->with(['error' => __('app/all.phone_number_with_country_code_does_not_exist')]);
       }
         // this is in case resete password
-        $client->reset_password_token = str_random(50) . now() . $client->id . '' . str_random(5);
+        $client->verifycode = str_random(50) . now() . $client->id . '' . str_random(5);
         $client->save();
         return view('front.auth.register.sendotp')->with(['country_code' => $country_code, 'phone' => $phone, 'verifycode' => $client->verifycode ]);
    }
