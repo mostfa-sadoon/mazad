@@ -165,7 +165,7 @@ $(document).ready(function () {
     var session_phone=country_code+number;
     // this function send sms to phone
     function sendCode() {
-		alert('@lang('app/all.Getting_Your_Code')');
+		//alert('@lang('app/all.Getting_Your_Code')');
 		var phoneNo = session_phone;
 		console.log(phoneNo);
 		// getCode(phoneNo);

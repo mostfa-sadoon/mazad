@@ -111,9 +111,7 @@
 				console.log(result);
 				if(result.status == 200) {
 					$("#error").hide();
-
-					firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
-
+					firebase.auth().signInWithPhoneNumber(otpnumber, window.recaptchaVerifier).then(function (confirmationResult) {
 						window.confirmationResult = confirmationResult;
 						localStorage.setItem("confirmationResult", confirmationResult);
 						localStorage.setItem("verificationId", confirmationResult['verificationId']);
@@ -123,12 +121,11 @@
 						//console.log(localStorage.getItem("confirmationResult"));
 						$("#successAuth").text("Message sent");
 						$("#successAuth").show();
-						window.location.href = "/reset-password/" + $('#country_code').val() + "/" + otpnumber + "/" + result.reset_password_token
+						// window.location.href = "/reset-password/" + $('#country_code').val() + "/" + otpnumber + "/" + result.reset_password_token
 					}).catch(function (error) {
 						$("#error").text(error.message);
 						$("#error").show();
 					});
-
 				}else if(result.status == 201) {
 					$("#error").text(result.msg);
 					$("#error").show();
