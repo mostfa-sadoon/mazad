@@ -207,7 +207,7 @@ class ClientLoginController extends Controller
    }
 
    public function sendphone(Request $request){
-         
+
         $country_code=$request->country_code;
         $phone=$request->phone;
         // we use it in forget password
@@ -223,6 +223,7 @@ class ClientLoginController extends Controller
 
   // we use this function after user send otp success to verify account
   public function verifyphone($country_code, $phone, $verifycode, Request $request){
+    dd($request->all());
         try {
             $client = Client::where(['country_code' => $country_code, 'phone' => explode($phone)[1], 'verifycode' => $verifycode])->first();
             if (!$client) {
