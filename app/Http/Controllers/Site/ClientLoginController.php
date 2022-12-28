@@ -226,7 +226,6 @@ class ClientLoginController extends Controller
    // dd($phone);
         // try {
             $client = Client::where(['country_code' => $country_code, 'phone' => explode($country_code,$phone)[1], 'verifycode' => $verifycode])->first();
-             dd($client);
             if (!$client) {
             return redirect()->route('client.otp')->with(['error' => __('app/all.Client_does_not_exists')]);
             }
