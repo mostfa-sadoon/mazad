@@ -24,7 +24,8 @@ Route::group([
 
 
         ################################## Admins ######################################
-        Route::group(['prefix' => 'admins', 'middleware' => 'can:admins'], function () {
+        //'middleware' => 'can:admins'
+        Route::group(['prefix' => 'admins'], function () {
             Route::get('/', 'AdminController@index')->name('admin.admins.index');
             Route::get('/create', 'AdminController@create')->name('admin.admins.create');
             Route::post('/store', 'AdminController@store')->name('admin.admins.store');

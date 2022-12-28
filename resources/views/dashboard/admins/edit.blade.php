@@ -56,7 +56,7 @@ $active_links = ['dashboard_admins' , ''];
                                             @error("id")
                                                 <span class="text-danger">{{$message}}</span>
                                             @enderror
-                                            
+
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-home"></i> البيانات الاساسية </h4>
                                                 <div class="row">
@@ -90,7 +90,7 @@ $active_links = ['dashboard_admins' , ''];
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-4">
+                                                    {{-- <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> اختر الصلاحية
                                                             </label>
@@ -111,7 +111,7 @@ $active_links = ['dashboard_admins' , ''];
                                                             <span class="text-danger"> {{$message}}</span>
                                                             @enderror
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
                                                 </div>
 

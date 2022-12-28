@@ -35,8 +35,9 @@ class AdminController extends Controller
     }
 
 
-    public function store(AdminRequest $request)
+    public function store(Request $request)
     {
+
         $user = new Admin();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -62,8 +63,15 @@ class AdminController extends Controller
         return view('dashboard.admins.edit', compact(['admin', 'roles']));
     }
 
-    public function update($id, AdminRequest $request)
+    public function update($id, Request $request)
     {
+
+        if($request->password!=null){
+            $request->validate([
+                'password'=> 'required|min:6|max:50|confirmed',
+                'password_confirmation' => 'required|max:50|min:6',
+            ]);
+        }
         try {
             $admin = Admin::findOrFail($id);
             if (!$admin)
@@ -74,7 +82,7 @@ class AdminController extends Controller
             $admin->password = bcrypt($request->password);   // the best place on model
             $admin->role_id = $request->role_id;
             $admin->save();
-            
+
             return redirect()->back()->with(['success' => __('admin/forms.updated_successfully')]);
 
         } catch (\Exception $ex) {

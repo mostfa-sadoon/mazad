@@ -14,7 +14,7 @@ class ProfileController extends Controller
 
         $admin = Admin::find(auth('admin')->user()->id);
 
-        return view('dashboard.profile.edit', compact('admin'));
+        return view('dashboard.admins.edit', compact('admin'));
 
     }
 
@@ -35,7 +35,7 @@ class ProfileController extends Controller
 
             unset($request['id']);
             unset($request['password_confirmation']);
-            
+
 //return $request;
 
             $admin->update($request->all());
