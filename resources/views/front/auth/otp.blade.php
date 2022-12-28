@@ -100,6 +100,7 @@
 		var number = $("#phone_cc").val();
 	    var countrycode=$('#country_code').val();
         var otpnumber =countrycode+number;
+        console.log(otpnumber);
 		// Ajax req to check if phone exists in db
 		var _token = "{{ csrf_token() }}";
 		$.ajax({
@@ -114,7 +115,7 @@
 					firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
 
 						window.confirmationResult = confirmationResult;
-						//localStorage.setItem("confirmationResult", confirmationResult);
+						localStorage.setItem("confirmationResult", confirmationResult);
 						localStorage.setItem("verificationId", confirmationResult['verificationId']);
 						coderesult = confirmationResult;
 						console.log(coderesult);
