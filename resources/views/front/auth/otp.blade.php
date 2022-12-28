@@ -98,8 +98,8 @@
 
 	function sendOTP() {
 		var number = $("#phone_cc").val();
-		console.log(number)
-
+	    var countrycode=$('#country_code').val();
+        var otpnumber =countrycode+number;
 		// Ajax req to check if phone exists in db
 		var _token = "{{ csrf_token() }}";
 		$.ajax({
@@ -114,18 +114,15 @@
 					firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
 
 						window.confirmationResult = confirmationResult;
-
 						//localStorage.setItem("confirmationResult", confirmationResult);
 						localStorage.setItem("verificationId", confirmationResult['verificationId']);
-
 						coderesult = confirmationResult;
 						console.log(coderesult);
 						console.log(localStorage.getItem("verificationId"));
 						//console.log(localStorage.getItem("confirmationResult"));
-
 						$("#successAuth").text("Message sent");
 						$("#successAuth").show();
-						window.location.href = "/reset-password/" + $('#country_code').val() + "/" + number + "/" + result.reset_password_token
+						window.location.href = "/reset-password/" + $('#country_code').val() + "/" + otpnumber + "/" + result.reset_password_token
 					}).catch(function (error) {
 						$("#error").text(error.message);
 						$("#error").show();
@@ -161,7 +158,7 @@
     $(".ok").click(function(){
       $("#successfullyBid").fadeOut(200);
   })
-	  
+
     var telInput = $("#phone_cc"),
         errorMsg = $("#error-msg"),
         validMsg = $("#valid-msg");
@@ -194,7 +191,7 @@
             $('#country_code').val(code[1])
             var countryCode = countryCode.replace(/[^0-9]/g, '')
         });
-	  
+
     });
 </script>
 

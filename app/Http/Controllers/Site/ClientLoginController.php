@@ -38,6 +38,7 @@ class ClientLoginController extends Controller
 
   public function checkClient(Request $request)
   {
+    dd($request->all());
     try {
         $country_code=$request->country_code;
         $phone=$request->phone;
