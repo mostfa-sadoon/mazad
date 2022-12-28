@@ -44,7 +44,7 @@ class ClientLoginController extends Controller
     if(!isset($request->type)){
         // we use it in forget password
 
-      $client = Client::where(['country_code' => $request->country_code, 'phone' => explode($country_code, $phone)[1]])->first();
+      $client = Client::where(['country_code' => $request->country_code, 'phone' =>$phone])->first();
       if (!$client) {
         return response()->json(['status' => 201, 'msg' => __('app/all.phone_number_with_country_code_does_not_exist')], 201);
       }
@@ -224,7 +224,7 @@ class ClientLoginController extends Controller
   // we use this function after user send otp success to verify account
   public function verifyphone($country_code, $phone, $verifycode, Request $request){
    // dd($phone);
-        // try {
+        try {
             $client = Client::where(['country_code' => $country_code, 'phone' => explode($country_code,$phone)[1], 'verifycode' => $verifycode])->first();
             if (!$client) {
             return redirect()->route('client.otp')->with(['error' => __('app/all.Client_does_not_exists')]);
@@ -233,8 +233,8 @@ class ClientLoginController extends Controller
             'verified_at'=>Carbon::now(),
             ]);
             return redirect()->route('client.login')->with('success_model', __('app/all.Your_account_has_been_created_successfully'))->with('phone', $client->phone);
-        // } catch (\Throwable $th) {
-        //     return redirect()->back()->with(['error' => __('app/all.Client_does_not_exists')]);
-        // }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with(['error' => __('app/all.Client_does_not_exists')]);
+        }
   }
 }
