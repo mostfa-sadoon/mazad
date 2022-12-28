@@ -1,5 +1,5 @@
 <?php
-$active_links = ['slider' , ''];
+$active_links = ['banners' , ''];
 ?>
 
 @extends('layouts.admin')
