@@ -206,7 +206,7 @@ $(document).ready(function () {
 			}
 			var credential = firebase.auth.PhoneAuthProvider.credential(localStorage.getItem("confirmationResult") , code);
 			firebase.auth().signInWithCredential(credential).then((data) => {
-				console.log('@lang('app/all.phone_number_has_been_confirmed')');
+				//console.log('@lang('app/all.phone_number_has_been_confirmed')');
                 window.location.href = "/verify-phone/" + "{{$country_code}}" + "/" + session_phone + "/" + "{{$verifycode}}"
 
 			}).catch((err) => {
