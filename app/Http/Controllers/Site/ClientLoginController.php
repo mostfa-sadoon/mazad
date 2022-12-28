@@ -70,7 +70,9 @@ class ClientLoginController extends Controller
 
   public function resetPassword($country_code, $phone, $reset_password_token) // Code Page
   {
-    try {
+    // try {
+
+     dd($request->all());
 
       $client = Client::where(['country_code' => $country_code, 'phone' => explode($country_code, $phone)[1], 'reset_password_token' => $reset_password_token])->first();
       if (!$client) {
@@ -78,9 +80,9 @@ class ClientLoginController extends Controller
       }
 
       return view('front.auth.reset_pass')->with(['country_code' => $country_code, 'phone' => $phone, 'reset_password_token' => $reset_password_token]);
-    } catch (\Throwable $th) {
-      return redirect()->back()->with(['error' => __('app/all.Client_does_not_exists')]);
-    }
+    // } catch (\Throwable $th) {
+    //   return redirect()->back()->with(['error' => __('app/all.Client_does_not_exists')]);
+    // }
   }
 
   public function newPassword($country_code, $phone, $reset_password_token) // New Password Page
