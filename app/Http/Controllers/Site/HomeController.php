@@ -89,8 +89,8 @@ class HomeController extends Controller
       ['end_time', '<', $carbon_now->toTimeString()]
     ])->orWhereIn('status', [1, 2])->where('country_id', $country_id)->orderBy('id' , 'desc')->limit(PAGINATION_COUNT)->get();
    //$banners=Banner::get();
-   $sidebarbanners=Banner::where('type','sidebar')->get();
-   $mainbanners=Banner::where('type','main')->get();
+   $sidebarbanners=Banner::where('type','sidebar')->where('activation',true)->get();
+   $mainbanners=Banner::where('type','main')->where('activation',true)->get();
    $data['sidebarbanners']=$sidebarbanners;
    $data['mainbanners']=$mainbanners;
 

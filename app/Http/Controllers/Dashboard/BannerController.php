@@ -141,6 +141,25 @@ class BannerController extends Controller
         }
     }
 
+    public function activation(Request $request){
+        // try {
+            $id=$request->id;
+            $banner=Banner::find($id);
+            if (!$banner)
+            return redirect()->route('admin.banners')->with(['error' => 'هذا الاسلايدر غير موجود']);
+            if($banner->activation==false){
+                $banner->update(['activation'=>true]);
+            }else{
+                $banner->update(['activation'=>false]);
+            }
+             return response()->json($banner);
+        // } catch (\Exception $ex) {
+        //     DB::rollback();
+        //     return redirect()->back()->with(['error' => __('admin/forms.wrong')]);
+        // }
+    }
+
+
 
     public function destroy($id)
     {

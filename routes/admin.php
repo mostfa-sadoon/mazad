@@ -235,6 +235,7 @@ Route::group([
             Route::get('/', 'BannerController@index')->name('admin.banners');
             Route::get('create', 'BannerController@create')->name('admin.banners.create');
             Route::post('store', 'BannerController@store')->name('admin.banners.store');
+            Route::get('activation','BannerController@activation')->name('admin.banner.activation');
             Route::get('edit/{id}', 'BannerController@edit')->name('admin.banners.edit');
             Route::post('update', 'BannerController@update')->name('admin.banners.update');
             // Route::post('update/{id}', 'BannarController@update')->name('admin.bannars.update');

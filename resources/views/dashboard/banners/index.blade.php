@@ -92,6 +92,8 @@ $active_links = ['banners' , 'showbanners'];
                                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                                 {{--  @if ($category->parent_id != null)    --}}
                                                                 {{--  @endif  --}}
+                                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" data-id="{{$banner->id}}" @if($banner->activation==true) checked @endif>
+
                                                                 <a href="{{ route('admin.banners.edit', ['id'=> $banner->id]) }}" class="btn btn-info box-shadow-3 mr-1 "><i class="ft-edit"></i></a>
                                                                 {{-- <a href="{{ route('admin.banners.delete',$banner->id) }}" class="btn btn-danger delete box-shadow-3 mr-1 "><i class="ft-delete"></i></a> --}}
                                                             </div>
@@ -121,5 +123,22 @@ $active_links = ['banners' , 'showbanners'];
     @stop
 
     @section('script')
+        <script>
+               var activationurl={!!json_encode(route('admin.banner.activation'))!!}
 
+            $('.form-check-input').click(function(){
+                var id=$(this).attr("data-id");
+
+                $.ajax
+                        ({
+                        type: "get",
+                        url: activationurl,
+                        data: {id:id},
+                        success: function(html)
+                        {
+
+                        }
+                        });
+            });
+        </script>
     @stop

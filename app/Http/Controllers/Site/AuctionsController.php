@@ -177,8 +177,8 @@ class AuctionsController extends Controller
       $data['client_favourite'] = Favourite::select('id')->where(['auction_id' => $data['auction']->id, 'client_id' => auth('client')->id()])->first();
     }
     // return $data['auction'];
-    $header_auctions=Banner::where('type','header_auctions')->get();
-    $footer_auctions=Banner::where('type','footer_auctions')->get();
+    $header_auctions=Banner::where('type','header_auctions')->where('activation',true)->get();
+    $footer_auctions=Banner::where('type','footer_auctions')->where('activation',true)->get();
     $data['header_auctions']=$header_auctions;
     $data['footer_auctions']=$footer_auctions;
     return view('front.auction_info')->with($data);

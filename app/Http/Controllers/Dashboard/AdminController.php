@@ -65,7 +65,6 @@ class AdminController extends Controller
 
     public function update($id, Request $request)
     {
-
         if($request->password!=null){
             $request->validate([
                 'password'=> 'required|min:6|max:50|confirmed',
