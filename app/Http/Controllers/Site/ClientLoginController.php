@@ -207,7 +207,7 @@ class ClientLoginController extends Controller
    }
 
    public function sendphone(Request $request){
-
+           dd($request->all());
         $country_code=$request->country_code;
         $phone=$request->phone;
         // we use it in forget password

@@ -35,7 +35,7 @@ RewriteRule ^(.*)$ /public/$1 [L,QSA]
 
     RewriteEngine On
     RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://90days-home.com/$1 [R,L]
+    RewriteRule ^(.*)$ https://mazadkniss.com/$1 [R,L]
 
 
 <Files 403.shtml>
