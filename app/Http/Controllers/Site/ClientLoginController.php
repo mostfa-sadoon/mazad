@@ -42,8 +42,9 @@ class ClientLoginController extends Controller
     try {
         $country_code=$request->country_code;
         $phone=$request->phone;
-    if(!isset($request->type)){
+    if($request->type==null){
         // we use it in forget password
+        dd($request->all());
 
       $client = Client::where(['country_code' => $request->country_code, 'phone' =>$phone])->first();
       if (!$client) {
