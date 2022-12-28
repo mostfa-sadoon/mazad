@@ -121,7 +121,7 @@
 						//console.log(localStorage.getItem("confirmationResult"));
 						$("#successAuth").text("Message sent");
 						$("#successAuth").show();
-						// window.location.href = "/reset-password/" + $('#country_code').val() + "/" + otpnumber + "/" + result.reset_password_token
+						 window.location.href = "/reset-password/" + $('#country_code').val() + "/" + otpnumber + "/" + result.reset_password_token
 					}).catch(function (error) {
 						$("#error").text(error.message);
 						$("#error").show();
