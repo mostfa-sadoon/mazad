@@ -44,8 +44,6 @@ class ClientLoginController extends Controller
         $phone=$request->phone;
     if($request->type==null){
         // we use it in forget password
-        dd($request->all());
-
       $client = Client::where(['country_code' => $request->country_code, 'phone' =>$phone])->first();
       if (!$client) {
         return response()->json(['status' => 201, 'msg' => __('app/all.phone_number_with_country_code_does_not_exist')], 201);
