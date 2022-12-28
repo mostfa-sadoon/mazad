@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70.305" height="70.305" viewBox="0 0 70.305 70.305">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#18a34c"/>
+      <stop offset="1" stop-color="#0d682f"/>
+    </linearGradient>
+  </defs>
+  <g id="delete2" transform="translate(-2 -2)">
+    <g id="g3653" transform="translate(2 2)">
+      <path id="path1494" d="M59.123,37.152c0,8.788,7.312,9.5,7.575,9.636a4.4,4.4,0,0,1,2,5.884,35.152,35.152,0,1,1,0-31.04,4.4,4.4,0,0,1-2,5.884C66.434,27.648,59.123,28.364,59.123,37.152Zm8.788-4.394a4.394,4.394,0,1,1-4.394,4.394A4.4,4.4,0,0,1,67.911,32.758Z" transform="translate(-2 -2)" fill="url(#linear-gradient)"/>
+      <path id="Icon_awesome-check" data-name="Icon awesome-check" d="M10.357,26.87.447,16.96a1.525,1.525,0,0,1,0-2.156L2.6,12.647a1.525,1.525,0,0,1,2.156,0l6.676,6.676,14.3-14.3a1.525,1.525,0,0,1,2.156,0L30.047,7.18a1.525,1.525,0,0,1,0,2.156L12.513,26.87A1.525,1.525,0,0,1,10.357,26.87Z" transform="translate(19.906 18.358)" fill="#fff"/>
+      <path id="Icon_awesome-check-2" data-name="Icon awesome-check" d="M10.357,26.87.447,16.96a1.525,1.525,0,0,1,0-2.156L2.6,12.647a1.525,1.525,0,0,1,2.156,0l6.676,6.676,14.3-14.3a1.525,1.525,0,0,1,2.156,0L30.047,7.18a1.525,1.525,0,0,1,0,2.156L12.513,26.87A1.525,1.525,0,0,1,10.357,26.87Z" transform="translate(19.906 22.594)" fill="#fff" opacity="0.1"/>
+    </g>
+  </g>
+</svg>

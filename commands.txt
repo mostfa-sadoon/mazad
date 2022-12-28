@@ -1,0 +1,20 @@
+laravel-translatable:
+https://github.com/Astrotomic/laravel-translatable
+
+mcamara:
+composer require mcamara/laravel-localization
+php artisan vendor:publish --provider="Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider"
+set this in app/Http/Kernel.php in $routeMiddleware :
+	'localize'                => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
+        'localizationRedirect'    => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
+        'localeSessionRedirect'   => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
+	'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
+	'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class
+
+Problem when install mcamara of memory size:
+php --ini
+set memory_limit = -1 in C:\xampp\php\php.ini
+
+yajra/laravel-datatables:
+composer require yajra/laravel-datatables-oracle:"~9.0"
+php artisan vendor:publish --provider="Yajra\DataTables\DataTablesServiceProvider"

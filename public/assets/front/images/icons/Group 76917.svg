@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35.892" height="29.69" viewBox="0 0 35.892 29.69">
+  <defs>
+    <filter id="Icon_awesome-youtube" x="0" y="0" width="35.892" height="29.69" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#303030" flood-opacity="0.098"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_76917" data-name="Group 76917" transform="translate(7.5 7.5)">
+    <g transform="matrix(1, 0, 0, 1, -7.5, -7.5)" filter="url(#Icon_awesome-youtube)">
+      <path id="Icon_awesome-youtube-2" data-name="Icon awesome-youtube" d="M21.505,6.8a2.625,2.625,0,0,0-1.847-1.859C18.029,4.5,11.5,4.5,11.5,4.5s-6.533,0-8.162.439A2.625,2.625,0,0,0,1.487,6.8,27.538,27.538,0,0,0,1.05,11.86a27.538,27.538,0,0,0,.437,5.061A2.586,2.586,0,0,0,3.334,18.75c1.629.439,8.162.439,8.162.439s6.533,0,8.162-.439a2.586,2.586,0,0,0,1.847-1.829,27.538,27.538,0,0,0,.437-5.061A27.538,27.538,0,0,0,21.505,6.8ZM9.359,14.966V8.753l5.46,3.106Z" transform="translate(6.45 3)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
