@@ -57,7 +57,7 @@ class HomeController extends Controller
       function ($q) use ($carbon_now, $now) {
         return $q->where([
           ['created_at', '>=', $carbon_now->subdays(30)->toDateTimeString()],
-          ['status', 3],
+          ['status', null],
           ['start_date', '<', $now]
         ])
           ->orWhere([
