@@ -52,12 +52,12 @@ class HomeController extends Controller
     $data['slider'] = Slider::select('id', 'image','url')->where('place', 1)->get();
     $data['down_slider'] = Slider::select('id', 'image','url')->where('place', 2)->first();
     $data['categories'] = getCategories();
-
     $data['latest_auctions'] = Auction::with(['city', 'city.country'])->where(
       function ($q) use ($carbon_now, $now) {
         return $q->where([
           ['created_at', '>=', $carbon_now->subdays(30)->toDateTimeString()],
           ['status', null],
+          ['end_date','<=',$carbon_now],
           ['start_date', '<', $now]
         ])
           ->orWhere([
