@@ -66,7 +66,6 @@ class HomeController extends Controller
           ]);
       }
     )->where('country_id', $country_id)->orderBy('id' , 'desc')->limit(PAGINATION_COUNT)->get();
-    //dd($data['latest_auctions']);
     $data['soon_actions'] = Auction::with(['city', 'city.country'])->where('start_date', '>', $now)->where('country_id', $country_id)->orderBy('id' , 'desc')->limit(PAGINATION_COUNT)->get();
     // $not_ended_auctions = $q->where('end_date', '>=', $carbon_now)->where('country_id', $country_id)->get();
     // foreach ($not_ended_auctions as $key => $auction) {
