@@ -1,10 +1,10 @@
 
                                 <a href="{{ route('client.auction.show', ['slug'=>$item->slug]) }}" class="mazad-box @if ( ($item->recognition_id != 0) ) mazad-special @endif">
-									
+
                                     <div class="image">
                                         <div class="img">
                                             <img style="width: 100%;height: 211px;" src="{{ $item->cover }}" />
-                                                
+
                                             {{--  @if ( (auth('client') && auth('client')->id() != $item->client_id) || !auth('client') )
                                             <label class="add-fav">
                                                 <input type="checkbox" />
@@ -23,7 +23,7 @@
                                             </label>
                                             <script>
                                                 $(document).ready(function(){
-                                            
+
                                                     $('.fav-img').on('click', function () {
                                                         console.log($(this).data('id'))
                                                             $.ajax({
@@ -33,12 +33,12 @@
                                                                     window.location.reload();
                                                                     //console.log(result)
                                                                 }
-                                            
+
                                                             })
                                                     });
-                                            
-                                                 
-                                                
+
+
+
                                                 });
                                             </script>
                                             @endif
@@ -62,7 +62,7 @@
                                             @endif
                                             <div class="sold">{{ getAuctionStatus($item)[1] }}</div>
                                         @endif
-                                        
+
                                     </div>
                                     <div class="content">
                                         <div class="d-flex flex-center justify-content-between">
@@ -106,7 +106,7 @@
                                         // Output the result in an element with id="demo"
                                         document.getElementById("{{ $type }}-time-id-{{ $item->id }}").innerHTML = "<span><p>" + days + "</p><b>@lang('app/all.Days')</b></span> : <span><p>" + hours + "</p><b>@lang('app/all.h')</b></span> : <span><p>" + minutes + "</p><b>@lang('app/all.m')</b></span> : <span><p>" + seconds + "</p><b>@lang('app/all.s')</b></span>";
 
-                                        // If the count down is over, write some text 
+                                        // If the count down is over, write some text
                                         if (distance < 0) {
                                             clearInterval(x);
                                             document.getElementById("{{ $type }}-time-id-{{ $item->id }}").innerHTML = "Closed";

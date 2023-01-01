@@ -117,6 +117,12 @@ function auctionStatus($i)
 			2 => 'Closed',
 			3 => 'Open',
 			4 => 'Coming',
+        ],
+        'fr' => [
+			1 => 'Vendue',
+			2 => 'Fermée',
+			3 => 'Ouvrir',
+			4 => 'À venir',
 		]
 	];
 
@@ -151,7 +157,6 @@ function getAuctionStatus(Auction $auction)
 	// if ($auction->status == 1) {
 	// 	$status = 'Sold';
 	// }
-
 	return $status;
 }
 
