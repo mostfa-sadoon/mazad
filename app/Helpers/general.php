@@ -128,8 +128,10 @@ function auctionStatus($i)
 
 	if (app()->getLocale() == 'ar') {
 		return [$i, $methods['ar'][$i]];
-	} else {
+	} else if(app()->getLocale() == 'en'){
 		return [$i, $methods['en'][$i]];
+	}else if(app()->getLocale() == 'fr'){
+		return [$i, $methods['fr'][$i]];
 	}
 }
 
