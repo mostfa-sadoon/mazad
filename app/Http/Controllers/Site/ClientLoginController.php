@@ -68,7 +68,7 @@ class ClientLoginController extends Controller
     }
   }
 
-  public function resetPassword($country_code, $phone, $reset_password_token) // Code Page
+  public function resetPassword($country_code, $phone, $reset_password_token) // Code Page ffff
   {
     try {
       $client = Client::where(['country_code' => $country_code, 'phone' => explode($country_code, $phone)[1], 'reset_password_token' => $reset_password_token])->first();
