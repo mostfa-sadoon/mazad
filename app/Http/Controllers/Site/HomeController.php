@@ -79,7 +79,6 @@ class HomeController extends Controller
     //     $data['soon_actions'][] = $auction;
     //   }
     // }
-
     $homeSections=HomeSection::get();
     $data['homeSections']=$homeSections;
     $data['closed_auctions'] = Auction::with(['city', 'city.country'])->where([
@@ -91,8 +90,6 @@ class HomeController extends Controller
    $mainbanners=Banner::where('type','main')->where('activation',true)->get();
    $data['sidebarbanners']=$sidebarbanners;
    $data['mainbanners']=$mainbanners;
-
-
     return view('front.home')->with($data)->with(['country_id' => $country_id]);
   }
 
