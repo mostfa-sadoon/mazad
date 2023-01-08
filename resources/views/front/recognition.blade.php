@@ -8,24 +8,24 @@
 
 
 
-		
+
 		<!-- Start Content Page -->
 		<div id="content" class="page-content">
 			<div class="auction_added_successfully">
 				<div class="container">
-					
+
 			<div class="includes container" style="margin: 0 auto;" >
 				@include('front.includes.alerts.success')
 				@include('front.includes.alerts.errors')
 			</div>
 
-			
+
 			<div class="head-steps">
 				<div class="step-one active"><span>1</span><p>@lang('app/all.category')</p></div>
 				<div class="step-tow active"><span>2</span><p>@lang('app/all.details')</p></div>
 				<div class="step-three active"><span>3</span><p>@lang('app/all.done')</p></div>
 			</div>
-			
+
 					<div class="col-sm-8 col-sm-offset-2">
 						<div class="added_successfully">
 							<div class="image"><img src="{{ asset('assets/front/images/icons/delete-1.svg') }}" /></div>
@@ -56,13 +56,13 @@
 														</div>
 														<div class="box-right">
 															<div class="ico"><img src="{{ asset('assets/front/images/icons/Icon ionic-md-checkmark.svg') }}" /></div>
-															<div class="price">{{ $item->price }}$</div>
+															<div class="price">{{ $item->price }}{{ $auction->country->currency }}</div>
 														</div>
 													</div>
 												</label>
 											</li>
 										@endforeach
-										
+
 									</ul>
 									<div class="foot-btns">
 										<button type="submit" class="btn btn-success">@lang('app/all.PAY_AND_PUBLISH')</button>
