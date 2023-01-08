@@ -196,7 +196,7 @@ class AuctionController extends Controller
 
       DB::commit();
 
-      return view('front.recognition')->with(['slug' => $slug, 'auction_id' => $auction->id, 'recognitions' => $recognitions]);
+      return view('front.recognition')->with(['slug' => $slug, 'auction_id' => $auction->id, 'recognitions' => $recognitions ,'auction'=>$auction]);
     } catch (\Exception $ex) {
       DB::rollback();
       return redirect()->back()->with(['error' => __('admin/forms.wrong')]);
