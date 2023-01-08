@@ -335,9 +335,10 @@
 									src="{{ asset('assets/front/images/icons/Group 76292.svg')}}" /> {{ $win_biding->client->country->name }}, {{ $win_biding->client->city->name }}
 							</div>
 							<div class="win_phone"><img src="{{ asset('assets/front/images/icons/Group 76291.svg')}}" />
-                                <span>{{ $win_biding->client->country_code }}</span>
 								<a href="tel:{{ $win_biding->client->country_code }}{{ $win_biding->client->phone }}">{{ $win_biding->client->phone }}</a>
-							</div>
+                                <span>{{ $win_biding->client->country_code }}</span>
+
+                            </div>
 						</div>
 					</div>
 				</div>
