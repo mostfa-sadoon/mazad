@@ -335,7 +335,7 @@
 									src="{{ asset('assets/front/images/icons/Group 76292.svg')}}" /> {{ $win_biding->client->country->name }}, {{ $win_biding->client->city->name }}
 							</div>
 							<div class="win_phone"><img src="{{ asset('assets/front/images/icons/Group 76291.svg')}}" />
-								<a href="tel:{{ $win_biding->client->country_code }}{{ $win_biding->client->phone }}">{{ $win_biding->client->country_code }} {{ $win_biding->client->phone }}</a>
+								<a href="tel:{{ $win_biding->client->country_code }}{{ $win_biding->client->phone }}">{{ $win_biding->client->phone }}{{ $win_biding->client->country_code }} </a>
 							</div>
 						</div>
 					</div>
@@ -397,7 +397,7 @@
 
 		console.log(min_price)
 		$('#price-input').val(min_price);
-		
+
 		 $('#currency-field').keyup(function(){
               	$('#price-input').val($('#currency-field').val());
          });
@@ -424,7 +424,7 @@
 		});
 		// This button will decrement the value till 0
 		$(".cashminus").click(function (e) {
-		    
+
 			// Stop acting like a button
 			e.preventDefault();
 			// Get the field name
