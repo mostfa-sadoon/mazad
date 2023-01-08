@@ -56,7 +56,7 @@
 														</div>
 														<div class="box-right">
 															<div class="ico"><img src="{{ asset('assets/front/images/icons/Icon ionic-md-checkmark.svg') }}" /></div>
-															<div class="price">{{ $item->price }}{{ $auction->country->currency }}</div>
+															<div class="price">{{ $item->price }}{{ $item->country->currency }}</div>
 														</div>
 													</div>
 												</label>
