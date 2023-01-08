@@ -261,7 +261,16 @@ class AuctionController extends Controller
       $bid->client_id = auth('client')->id();
       $bid->value = $request->price;
       $bid->save();
-
+      if($bid->value>=$auction->max_price){
+        $carbon_now = Carbon::now();
+        $bid->win = 1;
+        $bid->save();
+        $auction->status = 1;
+        $auction->end_price = $bid->value;
+        $auction->end_date = carbonDate($carbon_now);
+        $auction->end_time = carbonTime($carbon_now);
+        $auction->save();
+      }
       NotificationService::sendSingleNotification(auth('client')->id(), 'client', 1, null, 'biding', $bid->id, $auction->client_id, 'client');
       DB::commit();
       return redirect()->back()->with(['success_model' => __('app/all.Bid_added_successfully')]);
@@ -278,21 +287,16 @@ class AuctionController extends Controller
     try {
       DB::beginTransaction();
       $carbon_now = Carbon::now();
-
       $biding = Biding::find($id);
       if (!$biding)
         return redirect()->back()->with(['error' => __('app/all.Not_found_this_biding')]);
-
       $auction = Auction::find($biding->auction_id);
       if (!$auction)
         return redirect()->back()->with(['error' => __('app/all.Not_found_this_auction')]);
-
       if ($auction->client_id != auth('client')->id())
         return redirect()->back()->with(['error' => __('app/all.Not_found_this_auction')]);
-
       $biding->win = 1;
       $biding->save();
-
       $auction->status = 1;
       $auction->end_price = $biding->value;
       $auction->end_date = carbonDate($carbon_now);

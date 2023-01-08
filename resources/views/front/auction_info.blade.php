@@ -220,8 +220,8 @@
 												class="fa fa-minus"></i></button>
 
 										<input type="text" name="money" id="currency-field"
-											pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" value="{{ ($auction->bidings && count($auction->bidings) != 0) ? number_format($auction->bidings()->max('value')) : number_format($auction->min_price) }}"
-											min="{{ $auction->min_price }}" class="money CurrencyInput" onkeypress="return onlyNumberKey(event)" />
+										 data-type="currency" value="{{ ($auction->bidings && count($auction->bidings) != 0) ?$auction->bidings()->max('value') : $auction->min_price }}"
+											min="{{ $auction->min_price }}" class="money " onkeypress="return onlyNumberKey(event)" />
 										<button type="button" class="cashplus cash-btn" field="money"><i
 												class="fa fa-plus"></i></button>
 									</form>
@@ -397,9 +397,14 @@
 
 		console.log(min_price)
 		$('#price-input').val(min_price);
+		
+		 $('#currency-field').keyup(function(){
+              	$('#price-input').val($('#currency-field').val());
+         });
 
 		// This button will increment the value
 		$('.cashplus').click(function (e) {
+             $('#price-input').val($('#currency-field').val());
 			// Stop acting like a button
 			e.preventDefault();
 			// Get the field name
@@ -419,6 +424,7 @@
 		});
 		// This button will decrement the value till 0
 		$(".cashminus").click(function (e) {
+		    
 			// Stop acting like a button
 			e.preventDefault();
 			// Get the field name
@@ -450,7 +456,7 @@
 
 <script>
     var map, infoWindow;
-    function initMap() {
+    // function initMap() {
 
         // Display a map on the page
         var map = new google.maps.Map(document.getElementById('map'), {
