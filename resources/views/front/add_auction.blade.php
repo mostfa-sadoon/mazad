@@ -3,9 +3,7 @@
 @section('title')
 @lang('app/all.add_auction')
 @endsection
-
 @section('content')
-
 @section('styles')
 <style>
 	.attr-lbls{
@@ -21,13 +19,10 @@
 <div id="content" class="page-content offwhite-page">
 	<section class="add-auction">
 		<div class="container">
-
 			<div class="includes container" style="margin: 0 auto;" >
 				@include('front.includes.alerts.success')
 				@include('front.includes.alerts.errors')
 			</div>
-
-
 			<form action="{{ route('auction.insert') }}" method="post" enctype="multipart/form-data">
 				@csrf
 
@@ -104,8 +99,9 @@
 						{{--  ____________________________________________ End of Auction Detail ________________________________________________________  --}}
 
 						{{--  _______________________________________ Category ______________________________________________  --}}
-
-						<div class="card @if (count($category[0]->attributes) == 0) hidden @endif">
+                        {{-- {{dd($category[0])}} --}}
+                        {{-- @if (count($category[0]->attributes) == 0) hidden @endif --}}
+						<div class="card ">
 							<h3 class="card-head">@lang('app/all.features')</h3>
 							{{--  <p>{{ $category->_parent->name }} >> <span class="text-info">{{ $category->name }}</span></p>  --}}
 							<div class="card-body">
@@ -118,12 +114,10 @@
 								@foreach ($category as $cat)
 									@php
 										$cats[] = $cat->id;
-
 										$attributes_ids = array_merge($attributes_ids , $cat->attributes()->pluck('id')->toArray());
-										$types = array_merge($types , $cat->attributes()->pluck('type')->toArray());
+                                        $types = array_merge($types , $cat->attributes()->pluck('type')->toArray());
 									@endphp
 								@endforeach
-
 								<input type="hidden" name="category_id" value="{{ $category_id }}">
 								<input type="hidden" name="attributes_ids" value="{{ implode('-' , $attributes_ids) }}">
 								<input type="hidden" name="types" value="{{ implode('-' , $types) }}">
@@ -312,10 +306,10 @@
 
 
 						{{--  ____________________________________________ Map ________________________________________________________  --}}
-							
-							
-							
-							
+
+
+
+
 							<div class="card">
 								<h3 class="card-head">@lang('app/all.location')</h3>
 								<div class="card-body">
@@ -323,16 +317,16 @@
 									<div id="map" style="height: 300px;"></div>
 								</div>
 							</div>
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
+
+
+
+
+
+
+
+
+
+
 						<!--<div class="card">-->
 
 						<!--	<h3 class="card-head">@lang('app/all.location')</h3>-->
