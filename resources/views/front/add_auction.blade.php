@@ -97,7 +97,6 @@
 							</div>
 						</div>
 						{{--  ____________________________________________ End of Auction Detail ________________________________________________________  --}}
-
 						{{--  _______________________________________ Category ______________________________________________  --}}
                         {{-- {{dd($category[0])}} --}}
                         {{-- @if (count($category[0]->attributes) == 0) hidden @endif --}}
@@ -105,7 +104,6 @@
 							<h3 class="card-head">@lang('app/all.features')</h3>
 							{{--  <p>{{ $category->_parent->name }} >> <span class="text-info">{{ $category->name }}</span></p>  --}}
 							<div class="card-body">
-
 								@php
 									$cats =[];
 									$attributes_ids =[];
@@ -121,7 +119,6 @@
 								<input type="hidden" name="category_id" value="{{ $category_id }}">
 								<input type="hidden" name="attributes_ids" value="{{ implode('-' , $attributes_ids) }}">
 								<input type="hidden" name="types" value="{{ implode('-' , $types) }}">
-
 								@foreach ($category as $cat)
 								@foreach ($cat->attributes as $attr)
 									@if ($attr->type == 0)
