@@ -42,6 +42,7 @@ class AuctionController extends Controller
     }
     // return Category::find($category_id)->_parent->id;
     $category = Category::with(['attributes', 'attributes.sub_attributes'])->whereIn('id', [$category_id ?? null, Category::find($category_id)->_parent->id ?? null])->orderBy('parent_id', 'desc')->get();
+     //dd($category);
     // dd(count($category[0]->attributes->sub_attributes));
     if (!$category)
       return redirect()->back()->with(['error' => __('app/all.Not_found_this_category')]);
