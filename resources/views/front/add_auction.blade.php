@@ -100,7 +100,7 @@
 						{{--  _______________________________________ Category ______________________________________________  --}}
                         {{-- {{dd($category[0])}} --}}
                         {{-- @if (count($category[0]->attributes) == 0) hidden @endif --}}
-						<div class="card ">
+						<div class="card"  @if (count($category[1]->attributes) ==0) hidden @endif >
 							<h3 class="card-head">@lang('app/all.features')</h3>
 							{{--  <p>{{ $category->_parent->name }} >> <span class="text-info">{{ $category->name }}</span></p>  --}}
 							<div class="card-body">
